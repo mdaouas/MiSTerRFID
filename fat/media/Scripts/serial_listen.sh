@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ttydev="/dev/ttyUSB0"
+ttydev="/dev/ttyACM0"
 
 WAITEND=$((SECONDS+30))
 while !  [ -c "${ttydev}" ] && [ ${SECONDS} -lt ${WAITEND} ]; do	
@@ -9,6 +9,6 @@ done
 
 if [ -c "${ttydev}" ]; then 	
 	export PATH="/media/fat/Scripts:$PATH"
-	stty 9600 -F "${ttydev}" raw -echo
+	stty 115200 -F "${ttydev}" raw -echo
 	bash <"${ttydev}"
 fi
