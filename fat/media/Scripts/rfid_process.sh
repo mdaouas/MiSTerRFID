@@ -4,13 +4,12 @@ rootPath="/media/fat/games/rfidLoader"
 
 declare -A MGLargs
 # [RBF]="Delay Type Index"
-MGLargs[Atari7800]="1 f 1"
-MGLargs[Atari5200]="1 s 1"
-MGLargs[AtariLynx]="1 f 1"
-MGLargs[C64]="1 f 1"
-MGLargs[NES]="2 f 1"
-MGLargs[NEOGEO]="1 f 1"
-MGLargs[Gameboy]="2 f 1"
+MGLargs[NES]="NES 2 f 1"
+MGLargs[FDS]="NES 2 f 1"
+MGLargs[NeoGeo]="NeoGeo 1 f 1"
+MGLargs[Gameboy]="Gameboy 2 f 1"
+MGLargs[TurboGrafx16CD]="TurboGrafx16 1 s 0"
+
 
 core_loader()
 {
@@ -31,7 +30,7 @@ core_loader()
             fi
             if [ ! -f $rootPath/$md5.mgl ]
             then 
-                echo "<mistergamedescription><rbf>_console/"$1"</rbf><file delay=\"${arguments[0]}\" type=\"${arguments[1]}\" index=\"${arguments[2]}\" path=\""$2"\"/></mistergamedescription>" > $rootPath/$md5.mgl
+                echo "<mistergamedescription><rbf>_console/"${arguments[0]}"</rbf><file delay=\"${arguments[1]}\" type=\"${arguments[2]}\" index=\"${arguments[3]}\" path=\""$2"\"/></mistergamedescription>" > $rootPath/$md5.mgl
                 echo $rootPath"/"$1"/"$md5".mgl write done."
             fi
             echo load_core $rootPath/$md5.mgl > /dev/MiSTer_cmd

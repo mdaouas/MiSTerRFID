@@ -27,3 +27,6 @@ Copy the files to your MiSTer SD card based on the structure of this repo. ATTEN
   
 ## Use
 To be completed
+
+## micropython-mfrc522
+https://github.com/danjperron/micropython-mfrc522
